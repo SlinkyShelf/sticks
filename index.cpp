@@ -10,9 +10,13 @@ struct state {
     state *swiches[2];
 };
 
-const int switchtable1[] = {0, 1, 2, 3, 4, 4};
-const int switchtable2[] = {0, 1, 1, 2, 3, 3};
-const int switchtable2[] = {0, 1, 1, 2, 2, 3};
+//                          0, 1, 2, 3, 4, 5, 6, 7, 8
+const int statecounts[] = {0, 1, 2, 2, 3, 2, 2, 1};
+const int switchtable[] = {
+    0, 1, 2, 3, 4, 4, 4, 4,
+    0, 1, 1, 2, 3, 3, 3, 4,
+    0, 1, 1, 2, 2, 3, 3, 4,
+};
 
 state *getmoves(int ph1, int ph2, int oh1, int oh2)
 {
