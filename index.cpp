@@ -20,6 +20,8 @@ const int switchtable[] = {
     0, 1, 1, 2, 2, 3, 3, 4, 4,
 };
 
+//Pointer Array of states
+//Seven Possible new states
 state *getmoves(int ph1, int ph2, int oh1, int oh2)
 {
 
