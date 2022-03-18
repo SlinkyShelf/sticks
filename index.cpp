@@ -39,43 +39,54 @@ int indexOf(int array[], int value)
     return -1;
 }
 
-//Pointer Array of states
-//Seven Possible new states
-void simulate(state s)
+int getstateint(int h1, int h2, int h3, int h4, int turn)
 {
-    //Attacks
-    if (s.turn == 0)
-    {
-        
-    } else {
-
-    }
-
-    
-
+    return (h1+h2*5+h3*25+h4*125)*(turn+1);
 }
 
-int getstateint(state s)
+int attack(int attacker, int victim)
 {
-    return (max(s.h1, s.h2) + min(s.h1, s.h2)*5+max(s.h3, s.h4)*25 + min(s.h3, s.h4)*125)*s.turn;
+    return (attacker+victim)%5;
 }
 
 state createstate(int h1, int h2, int h3, int h4, int turn)
 {
+    int id = getstateint(h1, h2, h3, h4, turn);
+
+
     state s;
     s.h1 = h1;
     s.h2 = h2;
     s.h3 = h3;
     s.h4 = h4;
     s.turn = turn;
-    s.stateid = getstateint(s);
+    s.stateid = id;
 
     if (h1 == 0 && h2 == 0)
-    {
         s.result = 1;
-    } else if (h3 == 0 && h4 == 0) {
+    else if (h3 == 0 && h4 == 0) 
         s.result = 2;
-    }
+
+    //Running simulations
+
+    int oturn = (turn+1)%1;
+
+    // Context
+    int ch1, ch2, ch3, ch4;
+    if (turn == 0)
+        ch1, ch2, ch3, ch4 = h1, h2, h3, h4;
+    else
+        ch1, ch2, ch3, ch4 = h3, h4, h1, h2;
+
+    //Temp States
+    int th1, th2, th3, th4;
+
+    //Attacks
+
+    //H1 attacks H3
+    th1, th2, th3, th4 = ch1, ch2, ch3, ch4;
+    th3 = attack(th1, th3);
+    createstate()
 }
 
 int main()
