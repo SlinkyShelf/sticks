@@ -28,7 +28,7 @@ const int switchtable[] = {
 
 int sizeofarray(int array[])
 {
-    return sizeof(array)-sizeof(int);
+    return sizeof(array)/4;
 }
 
 int indexOf(int array[], int value)
@@ -53,6 +53,10 @@ state createstate(int h1, int h2, int h3, int h4, int turn)
 {
     int id = getstateint(h1, h2, h3, h4, turn);
 
+    // if (calculatedstates[id] != NULL)
+    // {
+
+    // }
 
     state s;
     s.h1 = h1;
@@ -86,7 +90,7 @@ state createstate(int h1, int h2, int h3, int h4, int turn)
     //H1 attacks H3
     th1, th2, th3, th4 = ch1, ch2, ch3, ch4;
     th3 = attack(th1, th3);
-    createstate()
+    // createstate()
 }
 
 int main()
